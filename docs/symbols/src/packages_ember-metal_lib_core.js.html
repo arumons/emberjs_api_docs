@@ -1,0 +1,142 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">// ==========================================================================</span><span class="WHIT">
+<span class='line'>  2</span> </span><span class="COMM">// Project:  Ember Metal</span><span class="WHIT">
+<span class='line'>  3</span> </span><span class="COMM">// Copyright: ©2011 Strobe Inc. and contributors.</span><span class="WHIT">
+<span class='line'>  4</span> </span><span class="COMM">// License:   Licensed under MIT license (see license.js)</span><span class="WHIT">
+<span class='line'>  5</span> </span><span class="COMM">// ==========================================================================</span><span class="WHIT">
+<span class='line'>  6</span> </span><span class="COMM">/*globals Em:true ENV */</span><span class="WHIT">
+<span class='line'>  7</span> 
+<span class='line'>  8</span> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="STRN">'undefined'</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">Ember</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>  9</span> </span><span class="COMM">/**
+<span class='line'> 10</span>   @namespace
+<span class='line'> 11</span>   @name Ember
+<span class='line'> 12</span>   @version 0.9.5
+<span class='line'> 13</span> 
+<span class='line'> 14</span>   All Ember methods and functions are defined inside of this namespace.
+<span class='line'> 15</span>   You generally should not add new properties to this namespace as it may be
+<span class='line'> 16</span>   overwritten by future versions of Ember.
+<span class='line'> 17</span> 
+<span class='line'> 18</span>   You can also use the shorthand "Em" instead of "Ember".
+<span class='line'> 19</span> 
+<span class='line'> 20</span>   Ember-Runtime is a framework that provides core functions for
+<span class='line'> 21</span>   Ember including cross-platform functions, support for property
+<span class='line'> 22</span>   observing and objects. Its focus is on small size and performance. You can
+<span class='line'> 23</span>   use this in place of or along-side other cross-platform libraries such as
+<span class='line'> 24</span>   jQuery.
+<span class='line'> 25</span> 
+<span class='line'> 26</span>   The core Runtime framework is based on the jQuery API with a number of
+<span class='line'> 27</span>   performance optimizations.
+<span class='line'> 28</span> */</span><span class="WHIT">
+<span class='line'> 29</span> 
+<span class='line'> 30</span> </span><span class="COMM">// Create core object. Make it act like an instance of Ember.Namespace so that</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="COMM">// objects assigned to it are given a sane string representation.</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="NAME">Ember</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">isNamespace</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">toString</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">"Ember"</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 33</span> 
+<span class='line'> 34</span> </span><span class="COMM">// aliases needed to keep minifiers from removing the global context</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="STRN">'undefined'</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">window</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 36</span> </span><span class="WHIT">  </span><span class="NAME">window.Em</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">window.Ember</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Em</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Ember</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 38</span> 
+<span class='line'> 39</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 40</span> 
+<span class='line'> 41</span> </span><span class="COMM">/**
+<span class='line'> 42</span>   @static
+<span class='line'> 43</span>   @type String
+<span class='line'> 44</span>   @default '0.9.5'
+<span class='line'> 45</span>   @constant
+<span class='line'> 46</span> */</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="NAME">Ember.VERSION</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'0.9.5'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 48</span> 
+<span class='line'> 49</span> </span><span class="COMM">/**
+<span class='line'> 50</span>   @static
+<span class='line'> 51</span>   @type Hash
+<span class='line'> 52</span>   @constant
+<span class='line'> 53</span> 
+<span class='line'> 54</span>   Standard environmental variables.  You can define these in a global `ENV`
+<span class='line'> 55</span>   variable before loading Ember to control various configuration
+<span class='line'> 56</span>   settings.
+<span class='line'> 57</span> */</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="NAME">Ember.ENV</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'undefined'</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">ENV</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">ENV</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 59</span> 
+<span class='line'> 60</span> 
+<span class='line'> 61</span> </span><span class="COMM">// ..........................................................</span><span class="WHIT">
+<span class='line'> 62</span> </span><span class="COMM">// BOOTSTRAP</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 64</span> 
+<span class='line'> 65</span> </span><span class="COMM">/**
+<span class='line'> 66</span>   @static
+<span class='line'> 67</span>   @type Boolean
+<span class='line'> 68</span>   @default true
+<span class='line'> 69</span>   @constant
+<span class='line'> 70</span> 
+<span class='line'> 71</span>   Determines whether Ember should enhances some built-in object
+<span class='line'> 72</span>   prototypes to provide a more friendly API.  If enabled, a few methods
+<span class='line'> 73</span>   will be added to Function, String, and Array.  Object.prototype will not be
+<span class='line'> 74</span>   enhanced, which is the one that causes most troubles for people.
+<span class='line'> 75</span> 
+<span class='line'> 76</span>   In general we recommend leaving this option set to true since it rarely
+<span class='line'> 77</span>   conflicts with other code.  If you need to turn it off however, you can
+<span class='line'> 78</span>   define an ENV.EXTEND_PROTOTYPES config to disable it.
+<span class='line'> 79</span> */</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="NAME">Ember.EXTEND_PROTOTYPES</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">Ember.ENV.EXTEND_PROTOTYPES</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 81</span> 
+<span class='line'> 82</span> 
+<span class='line'> 83</span> </span><span class="COMM">/**
+<span class='line'> 84</span>   @static
+<span class='line'> 85</span>   @type Boolean
+<span class='line'> 86</span>   @default Ember.EXTEND_PROTOTYPES
+<span class='line'> 87</span>   @constant
+<span class='line'> 88</span> 
+<span class='line'> 89</span>   Determines whether Ember should add ECMAScript 5 shims to older browsers.
+<span class='line'> 90</span> */</span><span class="WHIT">
+<span class='line'> 91</span> </span><span class="NAME">Ember.SHIM_ES5</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">Ember.ENV.SHIM_ES5</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">Ember.EXTEND_PROTOTYPES</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 92</span> 
+<span class='line'> 93</span> 
+<span class='line'> 94</span> 
+<span class='line'> 95</span> </span><span class="COMM">/**
+<span class='line'> 96</span>   Empty function.  Useful for some operations.
+<span class='line'> 97</span> 
+<span class='line'> 98</span>   @returns {Object}
+<span class='line'> 99</span>   @private
+<span class='line'>100</span> */</span><span class="WHIT">
+<span class='line'>101</span> </span><span class="NAME">Ember.K</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>102</span> 
+<span class='line'>103</span> </span><span class="COMM">/**
+<span class='line'>104</span>   @namespace
+<span class='line'>105</span>   @name window
+<span class='line'>106</span>   @description The global window object
+<span class='line'>107</span> */</span><span class="WHIT">
+<span class='line'>108</span> 
+<span class='line'>109</span> 
+<span class='line'>110</span> </span><span class="COMM">// Stub out the methods defined by the ember-debug package in case it's not loaded</span><span class="WHIT">
+<span class='line'>111</span> 
+<span class='line'>112</span> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="STRN">'undefined'</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">ember_assert</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="WHIT">  </span><span class="NAME">window.ember_assert</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Ember.K</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>114</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>115</span> 
+<span class='line'>116</span> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="STRN">'undefined'</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">ember_warn</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">window.ember_warn</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Ember.K</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>117</span> 
+<span class='line'>118</span> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="STRN">'undefined'</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">ember_deprecate</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">window.ember_deprecate</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Ember.K</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>119</span> 
+<span class='line'>120</span> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="STRN">'undefined'</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">ember_deprecateFunc</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>121</span> </span><span class="WHIT">  </span><span class="NAME">window.ember_deprecateFunc</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">_</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">func</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">func</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>122</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>123</span> 
+<span class='line'>124</span> </span><span class="COMM">// ..........................................................</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="COMM">// LOGGER</span><span class="WHIT">
+<span class='line'>126</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>127</span> 
+<span class='line'>128</span> </span><span class="COMM">/**
+<span class='line'>129</span>   @class
+<span class='line'>130</span> 
+<span class='line'>131</span>   Inside Ember-Metal, simply uses the window.console object.
+<span class='line'>132</span>   Override this to provide more robust logging functionality.
+<span class='line'>133</span> */</span><span class="WHIT">
+<span class='line'>134</span> </span><span class="NAME">Ember.Logger</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">window.console</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">log</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">Ember.K</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">warn</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">Ember.K</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">error</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">Ember.K</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>135</span> </span></pre></body></html>

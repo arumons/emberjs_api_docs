@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- begin static/html-head.html -->
+    <meta charset="utf-8" />
+  <title>Ember.js API Docs</title>
+  <meta name="description" content="A framework for building fast, desktop caliber web applications." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/api.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script src="/js/jquery-bbq.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/lib/modernizr-1.7.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+  <!-- end static/html-head.html -->
+</head>
+
+  <body id="docs">
+<!-- ============================== header ================================= -->
+    <!-- begin static/header.html -->
+      <header role="banner">
+    <div id="wrapper">
+      <div id="logo">&nbsp;</div>
+      <nav role="navigation">
+        <ul id="nav">
+          <li><a href="http://emberjs.com">docs</a></li>
+          <li><a href="http://emberjs.com/community">community</a></li>
+          <li><a href="http://emberjs.com/examples">examples</a></li>
+          <li class="active"><a href="http://emberjs.com/api">api</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+
+    <!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+
+    <section id="list">
+      <header>
+        <form action="#" role="search">
+          <input type="text" />
+          <a href="#" class="search-reset"></a>
+        </form>
+      </header>
+      <div>
+        <span class="odd active"><a href="/">API Documentation Index</a></span>
+	
+	<span class='even' global><a href="../symbols/_global_.html">_global_</a></span>
+	
+	<span class='odd'><a href="../symbols/Array.html">Array</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.html">Ember</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.Application.html">Ember.Application</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.Array.html">Ember.Array</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.ArrayController.html">Ember.ArrayController</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.ArrayProxy.html">Ember.ArrayProxy</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.Binding.html">Ember.Binding</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.CollectionView.html">Ember.CollectionView</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.Comparable.html">Ember.Comparable</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.ComputedProperty.html">Ember.ComputedProperty</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.Copyable.html">Ember.Copyable</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.CoreObject.html">Ember.CoreObject</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.Enumerable.html">Ember.Enumerable</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.Error.html">Ember.Error</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.Freezable.html">Ember.Freezable</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.Handlebars.html">Ember.Handlebars</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.Logger.html">Ember.Logger</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.Mixin.html">Ember.Mixin</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.MutableArray.html">Ember.MutableArray</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.MutableEnumerable.html">Ember.MutableEnumerable</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.NativeArray.html">Ember.NativeArray</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.Object.html">Ember.Object</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.Observable.html">Ember.Observable</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.platform.html">Ember.platform</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.RenderBuffer.html">Ember.RenderBuffer</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.RunLoop.html">Ember.RunLoop</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.Set.html">Ember.Set</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.StateManager.html">Ember.StateManager</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.String.html">Ember.String</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.TextArea.html">Ember.TextArea</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.TextField.html">Ember.TextField</a></span>
+	
+	<span class='even'><a href="../symbols/Ember.TextSupport.html">Ember.TextSupport</a></span>
+	
+	<span class='odd'><a href="../symbols/Ember.View.html">Ember.View</a></span>
+	
+	<span class='even'><a href="../symbols/Function.html">Function</a></span>
+	
+	<span class='odd'><a href="../symbols/Handlebars.helpers.html">Handlebars.helpers</a></span>
+	
+	<span class='even'><a href="../symbols/String.html">String</a></span>
+	
+	<span class='odd'><a href="../symbols/window.html">window</a></span>
+	
+
+      </div>
+    </section>
+
+    <div role="main">
+      <section id="documentation">
+<!-- ============================== class title ============================ -->
+        <h1 class="classTitle">
+          
+          Built-In Namespace: _global_
+        </h1>
+
+<!-- ============================== class summary ========================== -->
+        <p class="description">
+          <span class="extends">
+          
+          </span>
+
+        
+
+          
+
+          
+        </p>
+
+
+<!-- ============================== properties summary ===================== -->
+      
+      
+        
+        <h2>Field Summary</h2>
+        <div id="properties">
+        
+          <ul>
+          
+            <li>
+              <a href="../symbols/_global_.html#guidFor">guidFor</a>
+            </li>
+          
+            <li>
+              <a href="../symbols/_global_.html#Map">Map</a>
+            </li>
+          
+          </ul>
+        
+
+        
+        </div>
+      
+
+
+
+
+<!-- ============================== methods summary ======================== -->
+      
+      
+        
+        
+          <h2>Class Methods</h2>
+          <ul class="methods">
+          
+            <li class="fixedFont"><a href="../symbols/_global_.html#isNativeFunc">isNativeFunc</a></li>
+          
+            <li class="fixedFont"><a href="../symbols/_global_.html#none">none</a></li>
+          
+            <li class="fixedFont"><a href="../symbols/_global_.html#o_create">o_create</a></li>
+          
+            <li class="fixedFont"><a href="../symbols/_global_.html#xform">xform</a></li>
+          
+          </ul>
+        
+      
+        
+        
+      
+<!-- ============================== events summary ======================== -->
+      
+
+
+
+<!-- ============================== field details ========================== -->
+      
+        <h2>
+          Field Detail
+        </h2>
+        
+          <a name="guidFor"> </a>
+          
+          <span class="property"><b>guidFor</b></span>
+
+          <div class="description">
+            <p>JavaScript (before ES6) does not have a Map implementation. Objects,
+which are often used as dictionaries, may only have Strings as keys.</p>
+
+<p>Because Ember has a way to get a unique identifier for every object
+via <code class='syntax js'><span class="class">Ember</span>.<span class="variable">guidFor</span></code>, we can implement a performant Map with arbitrary
+keys. Because it is commonly used in low-level bookkeeping, Map is
+implemented as a pure JavaScript object for performance.</p>
+
+<p>This implementation follows the current iteration of the ES6 proposal
+for maps (http://wiki.ecmascript.org/doku.php?id=harmony:simple_maps_and_sets),
+with two exceptions. First, because we need our implementation to be
+pleasant on older browsers, we do not use the <code class='syntax js'><span class="keyword">delete</span></code> name (using
+<code class='syntax js'><span class="variable">remove</span></code> instead). Second, as we do not have the luxury of in-VM
+iteration, we implement a <code class='syntax js'><span class="variable">forEach</span></code> method for iteration.</p>
+
+<p>Map is mocked out to look like an Ember object, so you can do
+<code class='syntax js'><span class="class">Ember</span>.<span class="class">Map</span>.<span class="variable">create</span>()</code> for symmetry with other Ember classes.</p>
+            
+              <br />
+              <span class="definedin">Defined in: </span> <a href="../symbols/src/packages_ember-runtime_lib_system_map.js.html">map.js</a>.
+            
+            
+          </div>
+
+          
+
+            
+            
+            
+            
+
+        
+          <a name="Map"> </a>
+          
+          <span class="property"><b>Map</b></span>
+
+          <div class="description">
+            <p>A Map stores values indexed by keys. Unlike JavaScript's
+default Objects, the keys of a Map can be any JavaScript
+object.</p>
+
+<p>Internally, a Map has two data structures:</p>
+
+<p><code class='syntax js'><span class="variable">keys</span></code>: an OrderedSet of all of the existing keys
+  <code class='syntax js'><span class="variable">values</span></code>: a JavaScript Object indexed by the
+    <code class='syntax js'><span class="class">Ember</span>.<span class="variable">guidFor</span>(<span class="variable">key</span>)</code></p>
+
+<p>When a key/value pair is added for the first time, we
+add the key to the <code class='syntax js'><span class="variable">keys</span></code> OrderedSet, and create or
+replace an entry in <code class='syntax js'><span class="variable">values</span></code>. When an entry is deleted,
+we delete its entry in <code class='syntax js'><span class="variable">keys</span></code> and <code class='syntax js'><span class="variable">values</span></code>.</p>
+            
+              <br />
+              <span class="definedin">Defined in: </span> <a href="../symbols/src/packages_ember-runtime_lib_system_map.js.html">map.js</a>.
+            
+            
+          </div>
+
+          
+
+            
+            
+            
+            
+
+        
+      
+
+
+<!-- ============================== method details ========================= -->
+      
+        
+        
+          <h2>Class Method Detail</h2>
+          
+            <a name="isNativeFunc"> </a>
+            <div class="fixedFont">
+              <span class="methodname">isNativeFunc</span>
+            </div>
+            <div class="description">
+              
+              
+                <br />
+                <span class="definedin">Defined in: <a href="../symbols/src/packages_ember-metal_lib_array.js.html">array.js</a>.</span>
+              
+              
+            </div>
+
+            
+
+              
+                <dl class="parameters">
+                <dt class="heading">Parameters:</dt>
+                
+                  <dt>
+                    <b>func</b>
+                    
+                  </dt>
+                  <dd></dd>
+                
+                </dl>
+              
+              
+              
+              
+              
+              
+              
+
+          
+            <a name="none"> </a>
+            <div class="fixedFont">
+              <span class="methodname">none</span>
+            </div>
+            <div class="description">
+              
+              
+                <br />
+                <span class="definedin">Defined in: <a href="../symbols/src/packages_ember-runtime_lib_mixins_array.js.html">array.js</a>.</span>
+              
+              
+            </div>
+
+            
+
+              
+                <dl class="parameters">
+                <dt class="heading">Parameters:</dt>
+                
+                  <dt>
+                    <b>obj</b>
+                    
+                  </dt>
+                  <dd></dd>
+                
+                </dl>
+              
+              
+              
+              
+              
+              
+              
+
+          
+            <a name="o_create"> </a>
+            <div class="fixedFont">
+              <span class="methodname">o_create</span>
+            </div>
+            <div class="description">
+              
+              
+                <br />
+                <span class="definedin">Defined in: <a href="../symbols/src/packages_ember-metal_lib_utils.js.html">utils.js</a>.</span>
+              
+              
+            </div>
+
+            
+
+              
+                <dl class="parameters">
+                <dt class="heading">Parameters:</dt>
+                
+                  <dt>
+                    <b>meta</b>
+                    
+                  </dt>
+                  <dd></dd>
+                
+                </dl>
+              
+              
+              
+              
+              
+              
+              
+
+          
+            <a name="xform"> </a>
+            <div class="fixedFont">
+              <span class="methodname">xform</span>
+            </div>
+            <div class="description">
+              
+              
+                <br />
+                <span class="definedin">Defined in: <a href="../symbols/src/packages_ember-runtime_lib_mixins_evented.js.html">evented.js</a>.</span>
+              
+              
+            </div>
+
+            
+
+              
+                <dl class="parameters">
+                <dt class="heading">Parameters:</dt>
+                
+                  <dt>
+                    <b>target</b>
+                    
+                  </dt>
+                  <dd></dd>
+                
+                  <dt>
+                    <b>method</b>
+                    
+                  </dt>
+                  <dd></dd>
+                
+                  <dt>
+                    <b>params</b>
+                    
+                  </dt>
+                  <dd></dd>
+                
+                </dl>
+              
+              
+              
+              
+              
+              
+              
+
+          
+        
+      
+        
+        
+      
+
+<!-- ============================== event details ========================= -->
+      
+
+
+
+<!-- ============================== footer ================================= -->
+        <div class="fineprint" style="clear:both">
+          
+          Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Mar 02 2012 23:39:45 GMT+0900 (JST)
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
